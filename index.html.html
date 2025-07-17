@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise is Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      color: #d81b60;
+    }
+
+    #start-btn {
+      display: none;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    #start-btn:hover {
+      background: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Something magical is coming...</h1>
+  <p id="countdown">Countdown starting...</p>
+  <button id="start-btn" onclick="location.href='surprise.html'">Click to See Your Surprise 🎁</button>
+
+  <script>
+    let seconds = 10; // ⏳ change countdown time here
+    const countdownEl = document.getElementById("countdown");
+    const button = document.getElementById("start-btn");
+
+    const timer = setInterval(() => {
+      countdownEl.textContent = `⏳ Your surprise starts in ${seconds} seconds...`;
+      seconds--;
+
+      if (seconds < 0) {
+        clearInterval(timer);
+        countdownEl.style.display = "none";
+        button.style.display = "inline-block";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
